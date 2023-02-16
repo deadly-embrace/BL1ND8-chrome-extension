@@ -7,7 +7,7 @@ import RevealButton from "@pages/popup/RevealButton.js";
 import { MantineProvider, Text } from "@mantine/core";
 import { Progress } from "@mantine/core";
 import Timer from "@pages/popup/Timer.js";
-import Skeleton from 'react-loading-skeleton'
+import Skeleton from 'react-loading-skeleton';
 
 const source1 = {
   name: 'Bebop',
@@ -24,6 +24,17 @@ const sourceQueue = [source1, source2];
 
 const getSource = () => {
   return sourceQueue.shift();
+};
+
+const makeHearts = () => {
+  let delay = 0;
+  return new Array(20).fill(0).map(() => {
+    const tilt = Math.random() * 360;
+    delay += 100;
+    return (
+      <div className="heart" style={{'transform': `rotate(${tilt}deg`, 'animationDelay': `${delay}ms`, 'opacity': '0.05'}}></div>
+    );
+  });
 };
 
 const Popup = () => {
@@ -67,10 +78,11 @@ const Popup = () => {
       <div className="App">
         <header className="App-header">
           <div className="App-top">
-            <div className="username">{stream.name}</div>
+            <div className="username">"{stream.name}"</div>
             <img className="logo" src={logo}></img>
             <div className="location">{stream.location}</div>
           </div>
+          {isRevealed && makeHearts()}
           {!isRevealed && <div className="glass"></div>}
           <img
             className="App-video"
