@@ -67,15 +67,16 @@ const Popup = () => {
       <div className="App">
         <header className="App-header">
           <div className="App-top">
-            <div className="username">{(isRevealed && stream.name) || <Skeleton count={2}/>}</div>
+            <div className="username">{stream.name}</div>
             <img className="logo" src={logo}></img>
-            <div className="location">{(isRevealed && stream.location) || <Skeleton />}</div>
+            <div className="location">{stream.location}</div>
           </div>
-          {(isRevealed && <img
+          {!isRevealed && <div className="glass"></div>}
+          <img
             className="App-video"
             src = {stream?.source}
             alt="logo"
-          />) || <Skeleton />}
+          />
           {isRevealed && <div>Is it love at first sight?</div> || (!canReveal && <div>See your match in {timer.time >= 0 ? 30 - timer.time : 0} seconds!</div> || <div>Reveal your match! Is love truly blind?</div>)}
           <Progress className="App-progress" color="pink" radius="xl" size="xl" value={timer.time * (100 / 30)} />
           <button onClick={() => {if (canReveal) {

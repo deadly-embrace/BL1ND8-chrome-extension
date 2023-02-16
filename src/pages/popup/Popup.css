@@ -17,6 +17,21 @@
   pointer-events: none;
 }
 
+.glass {
+  top: 3em;
+  left: 0.2em;
+  height: 15em;
+  width: 26em;
+  position: absolute;
+  z-index: 9999999;
+ 
+  background: rgba(255, 255, 255, 0.27);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.9px);
+  -webkit-backdrop-filter: blur(13.9px);
+  border: 1px solid rgba(255, 255, 255, 0.39);
+}
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
