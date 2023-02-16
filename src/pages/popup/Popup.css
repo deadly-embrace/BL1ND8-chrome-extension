@@ -42,12 +42,12 @@
   50% {
     opacity : 1;
     scale: 1;
-    top: 70%;
+    top: 50%;
   }
   100% {
     opacity: 0;
     scale: 0;
-    top: 50%;
+    top: 30%;
   }
 }
 .heart {
