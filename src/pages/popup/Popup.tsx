@@ -7,11 +7,30 @@ import { MantineProvider, Text } from "@mantine/core";
 import { Progress } from "@mantine/core";
 import Timer from "@pages/popup/Timer.js";
 
+const source1 = {
+  name: 'Bebop',
+  location: 'NY, NY',
+  source: "https://images.wallpaperscraft.com/image/single/cat_kitten_glance_177552_1600x900.jpg"
+};
+
+const source2 = {
+  name: 'Munchkin',
+  location: 'LV, NV',
+  source: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Welchcorgipembroke.JPG/1200px-Welchcorgipembroke.JPG"
+};
+const sourceQueue = [source1, source2];
+
+const getSource = () => {
+  return sourceQueue.shift();
+};
+
 const Popup = () => {
   const [time, setTime] = useState(0);
+  const [stream, changeStream] = useState({});
   // // const [timer, setTimer] = useState({ time: 0 });
   useEffect(() => {
     new Timer(30, setTime);
+    changeStream(getSource());
   }, []);
 
   useMemo(() => {
@@ -24,19 +43,19 @@ const Popup = () => {
       <div className="App">
         <header className="App-header">
           <div className="App-top">
-            <div className="username">Munchkin</div>
+            <div className="username">{stream.name}</div>
             <img className="logo" src={logo}></img>
-            <div className="location">NY, NY</div>
+            <div className="location">{stream.location}</div>
           </div>
           <img
             className="App-video"
-            src="https://images.wallpaperscraft.com/image/single/cat_kitten_glance_177552_1600x900.jpg"
+            src = {stream.source}
             alt="logo"
           />
           <div>See your match in {30} seconds!</div>
           <Progress className="App-progress" color="pink" radius="xl" size="xl" value={time * (100 / 30)} />
           <button id="reveal-button" className="App-buttons-off">Reveal</button>
-          <button id="skip-button" className="App-buttons-off">Skip</button>
+          <button onClick={() => changeStream(getSource())} id="skip-button" className="App-buttons-off">Skip</button>
         </header>
       </div>
     </MantineProvider>

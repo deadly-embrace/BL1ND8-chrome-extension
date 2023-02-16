@@ -12,13 +12,13 @@ const manifest: chrome.runtime.ManifestV3 = {
   background: { service_worker: "src/pages/background/index.js" },
   action: {
     default_popup: "src/pages/popup/index.html",
-    default_icon: "icon-34.svg",
+    default_icon: "icon-34.png",
   },
   chrome_url_overrides: {
     newtab: "src/pages/newtab/index.html",
   },
   icons: {
-    "128": "icon-128.svg",
+    "128": "icon-128.png",
   },
   content_scripts: [
     {
@@ -33,8 +33,8 @@ const manifest: chrome.runtime.ManifestV3 = {
       resources: [
         "assets/js/*.js",
         "assets/css/*.css",
-        "icon-128.svg",
-        "icon-34.svg",
+        "icon-128.png",
+        "icon-34.png",
       ],
       matches: ["*://*/*"],
     },
