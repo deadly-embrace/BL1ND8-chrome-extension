@@ -3,8 +3,9 @@
 <path d="M132 64C132 99.3462 103.346 128 68 128C32.6538 128 4 99.3462 4 64C4 28.6538 32.6538 0 68 0C103.346 0 132 28.6538 132 64Z" fill="url(#paint0_linear_0_1)" shape-rendering="crispEdges"/>
 </g>
 <g filter="url(#filter1_d_0_1)">
-<path d="M59.4611 110L31 50.2786C31 50.2786 59.4611 8.56141 71.086 19.9788C82.711 31.3961 59.4611 68.722 59.4611 68.722C75.8963 63.8916 141.237 59.9394 77.9006 104.73" stroke="#FF0000" stroke-width="7" stroke-linecap="round"/>
+<path d="M73.2304 96L49 45.3666C49 45.3666 73.2304 9.99772 83.1273 19.6776C93.0242 29.3576 73.2304 61.0034 73.2304 61.0034C87.2226 56.9081 142.85 53.5573 88.9289 91.5324" stroke="#FF0000" stroke-width="7" stroke-linecap="round"/>
 </g>
+<path d="M42.3054 54.3204L25 98.0958L61.7427 98.0958" stroke="#FF0000" stroke-width="3" stroke-linecap="round"/>
 <defs>
 <filter id="filter0_d_0_1" x="0" y="0" width="136" height="136" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
@@ -16,7 +17,7 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
 </filter>
-<filter id="filter1_d_0_1" x="22.9749" y="14.5" width="89.5253" height="107.001" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter1_d_0_1" x="40.9708" y="14.5" width="78.5294" height="93.0008" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>

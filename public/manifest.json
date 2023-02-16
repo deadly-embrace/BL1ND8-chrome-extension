@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "BL1ND8",
   "version": "0.0.1",
-  "description": "Blind Date Chrome Extension",
+  "description": "Don't W8 to Find 'The One'",
   "options_page": "src/pages/options/index.html",
   "background": {
     "service_worker": "src/pages/background/index.js"
