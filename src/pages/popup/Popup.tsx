@@ -18,12 +18,14 @@ const source1 = {
 const source2 = {
   name: 'Munchkin',
   location: 'LV, NV',
-  source: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Welchcorgipembroke.JPG/1200px-Welchcorgipembroke.JPG"
+  source: "https://www.mccormick.northwestern.edu/images/news/2021/04/whisker-simulation-gives-insights-into-mammals-sense-of-touch-header.jpg"
 };
 const sourceQueue = [source1, source2];
 
 const getSource = () => {
-  return sourceQueue.shift();
+  const image = sourceQueue.shift();
+  sourceQueue.push(image);
+  return image;
 };
 
 const makeHearts = () => {
