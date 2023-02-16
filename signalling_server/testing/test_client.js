@@ -24,7 +24,7 @@ for(let i = 0; i < 200; i++) encryptedDeets += chars[Math.random() * 64 | 0];
 console.log("encryptedDeets:", encryptedDeets);
 
 
-fetch('http://localhost:8080/', {
+fetch('http://3.129.210.111:8080', {
         headers: { 'Singularity': pubkey + commkey + nonce + encryptedConnectionString + '*' + encryptedDeets },
     })
     .then(res => res.json())

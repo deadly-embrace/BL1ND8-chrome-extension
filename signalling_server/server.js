@@ -3,6 +3,16 @@ const app = express()
 const port = 8080
 
 app.get('/', (req, res) => {
+
+  if(!req.headers.singularity) {
+    res.status(400).send('Bad request, no header!');
+    return;
+  }
+  if(req.headers.singularity.length < 148) {
+    res.status(400).send('Bad request, improperly formed header!');
+    return;
+  }
+
   let pubkey = req.headers.singularity.slice(0, 92); //92
   console.log("pubkey:", pubkey);
 
