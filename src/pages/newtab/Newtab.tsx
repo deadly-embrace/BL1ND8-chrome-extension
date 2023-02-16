@@ -1,4 +1,5 @@
 import React from "react";
+import Player from "./Video/Player";
 import logo from "@assets/img/logo.svg";
 import "@pages/newtab/Newtab.css";
 import "@pages/newtab/Newtab.scss";
@@ -19,6 +20,7 @@ const Newtab = () => {
         >
           Learn React!
         </a>
+        <Player />
         <h6>The color of this paragraph is defined using SASS.</h6>
       </header>
     </div>
