@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
+import 'react-loading-skeleton/dist/skeleton.css'
 import "@pages/popup/Popup.css";
 import logo from "@assets/img/logo.svg";
 import SkipButton from "@pages/popup/SkipButton.js";
@@ -6,6 +7,7 @@ import RevealButton from "@pages/popup/RevealButton.js";
 import { MantineProvider, Text } from "@mantine/core";
 import { Progress } from "@mantine/core";
 import Timer from "@pages/popup/Timer.js";
+import Skeleton from 'react-loading-skeleton'
 
 const source1 = {
   name: 'Bebop',
@@ -25,37 +27,64 @@ const getSource = () => {
 };
 
 const Popup = () => {
-  const [time, setTime] = useState(0);
-  const [stream, changeStream] = useState({});
-  // // const [timer, setTimer] = useState({ time: 0 });
+  const [timer, setTimer] = useState({ time: 0, id: 0 });
+  const [stream, changeStream] = useState({
+    name: null,
+    location: null,
+    source: null,
+  });
+  const [reset, resetComponent] = useState(false);
+  const [canSkip, setCanSkip] = useState(false);
+  const [canReveal, setCanReveal] = useState(false);
+  const [isRevealed, setIsRevealed] = useState(false);
+  const [message, setMessage] = useState('');
+
   useEffect(() => {
-    new Timer(30, setTime);
+    timer.time = 0;
+    clearInterval(timer.id);
     changeStream(getSource());
-  }, []);
+    new Timer(30, setTimer);
+    document.querySelector('#reveal-button').className="App-buttons-off"
+    document.querySelector('#skip-button').className="App-buttons-off"
+    setCanSkip(false);
+    setCanReveal(false);
+    setIsRevealed(false);
+  }, [reset]);
 
   useMemo(() => {
-    if (time >= 30) document.querySelector('#reveal-button').className="App-buttons";
-    if (time >= 15) document.querySelector('#skip-button').className="App-buttons";
-  }, [time]);
+    if (timer.time >= 30) {
+      document.querySelector('#reveal-button').className="App-buttons"
+      setCanReveal(true);
+    };
+    if (timer.time >= 15) {
+      document.querySelector('#skip-button').className="App-buttons";
+      setCanSkip(true);
+    }
+  }, [timer.time]);
 
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
       <div className="App">
         <header className="App-header">
           <div className="App-top">
-            <div className="username">{stream.name}</div>
+            <div className="username">{(isRevealed && stream.name) || <Skeleton count={2}/>}</div>
             <img className="logo" src={logo}></img>
-            <div className="location">{stream.location}</div>
+            <div className="location">{(isRevealed && stream.location) || <Skeleton />}</div>
           </div>
-          <img
+          {(isRevealed && <img
             className="App-video"
-            src = {stream.source}
+            src = {stream?.source}
             alt="logo"
-          />
-          <div>See your match in {30} seconds!</div>
-          <Progress className="App-progress" color="pink" radius="xl" size="xl" value={time * (100 / 30)} />
-          <button id="reveal-button" className="App-buttons-off">Reveal</button>
-          <button onClick={() => changeStream(getSource())} id="skip-button" className="App-buttons-off">Skip</button>
+          />) || <Skeleton />}
+          {isRevealed && <div>Is it love at first sight?</div> || (!canReveal && <div>See your match in {timer.time >= 0 ? 30 - timer.time : 0} seconds!</div> || <div>Reveal your match! Is love truly blind?</div>)}
+          <Progress className="App-progress" color="pink" radius="xl" size="xl" value={timer.time * (100 / 30)} />
+          <button onClick={() => {if (canReveal) {
+            setIsRevealed(true);
+            document.querySelector('#reveal-button').className = "App-buttons-off";
+          }
+          }
+          } id="reveal-button" className="App-buttons-off">Reveal</button>
+          <button onClick={() => canSkip && resetComponent(!reset)} id="skip-button" className="App-buttons-off">Skip</button>
         </header>
       </div>
     </MantineProvider>

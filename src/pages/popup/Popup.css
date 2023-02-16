@@ -69,6 +69,10 @@
   background-color: rgb(167, 45, 62);
 }
 
+#reveal-button.App-buttons:hover {
+  animation: animateHeart 1.2s infinite;
+}
+
 .App-buttons:hover {
   background-color: rgb(214, 153, 214);
   transition: 0.75s;
@@ -94,5 +98,26 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes animateHeart {
+  0% {
+    transform: rotate(0deg) scale(0.9);
+  }
+  5% {
+    transform: rotate(0deg) scale(0.95);
+  }
+  10% {
+    transform: rotate(0deg) scale(0.9);
+  }
+  15% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(0deg) scale(0.9);
+  }
+  100% {
+    transform: rotate(0deg) scale(0.9);
   }
 }
