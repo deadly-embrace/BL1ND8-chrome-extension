@@ -13,6 +13,7 @@
 }
 
 .App-video {
+  margin-top: -30px;
   pointer-events: none;
 }
 
@@ -26,7 +27,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -36,23 +37,56 @@
 }
 
 .App-top {
-  margin: 15px;
+  margin: 10px;
   display: flex;
   justify-content: space-between;
-  align-items: top;
-  height: 100%;
+  align-items: center;
 }
 
 .logo {
-  margin-left: -15px;
+  margin-left: -1px;
+  margin-bottom: 15px;
   height: 2em;
 }
 
 .App-buttons {
-  position: relative;
-  width: 100px;
-  flex-direction: column;
+  height: 2em;  
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  background-color: rgb(185, 104, 178);
 }
+
+#skip-button.App-buttons {
+  background-color: rgb(188, 72, 88);
+}
+#skip-button.App-buttons:hover {
+  background-color: rgb(194, 114, 125);
+}
+#skip-button.App-buttons:active {
+  background-color: rgb(167, 45, 62);
+}
+
+.App-buttons:hover {
+  background-color: rgb(214, 153, 214);
+  transition: 0.75s;
+}
+
+
+.App-buttons:active {
+  background-color: rgb(167, 84, 159);
+}
+
+.App-buttons-off {
+  height: 2em;  
+  border-radius: 5px;
+  border: 0.5px solid darkgray;
+  color: gray;
+  background-color: rgba(0,0,0,0);
+}
+
 
 @keyframes App-logo-spin {
   from {
