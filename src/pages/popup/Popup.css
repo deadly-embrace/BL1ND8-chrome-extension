@@ -1,5 +1,5 @@
 .App {
-  position: absolute;
+  position: relative;
   margin: 0px;
   top: 0px;
   bottom: 0px;
@@ -12,7 +12,6 @@
 }
 
 .App-video {
-  /* height: 30vmin; */
   pointer-events: none;
 }
 
@@ -26,7 +25,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -36,11 +35,11 @@
 }
 
 .App-top {
-  margin-top: 20px;
+  margin: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 2%;
+  height: 100%;
 }
 
 .logo {

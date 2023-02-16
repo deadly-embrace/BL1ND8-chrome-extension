@@ -12,8 +12,8 @@ const Popup = () => {
           <div className="location">NY, NY</div>
         </div>
         <img
+          className="App-video"
           src="https://images.wallpaperscraft.com/image/single/cat_kitten_glance_177552_1600x900.jpg"
-          className="App-logo"
           alt="logo"
         />
         <p>See your match in {30} seconds!</p>
