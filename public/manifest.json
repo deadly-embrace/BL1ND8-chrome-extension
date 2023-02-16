@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "chrome-extension-boilerplate-react-vite",
+  "name": "BL1ND8",
   "version": "0.0.1",
-  "description": "chrome extension boilerplate",
+  "description": "Blind Date Chrome Extension",
   "options_page": "src/pages/options/index.html",
   "background": {
     "service_worker": "src/pages/background/index.js"
